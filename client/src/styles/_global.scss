@@ -1,0 +1,10 @@
+// src/styles/_global.scss
+@use "variables" as *;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
