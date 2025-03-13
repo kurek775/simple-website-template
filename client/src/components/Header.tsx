@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white py-4">
-      <nav className="flex justify-center space-x-4">
+    <header>
+      <nav>
         <NavLink
           to="/"
           className={({ isActive }) =>
