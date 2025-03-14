@@ -1,15 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Presentation from "./pages/Presentation";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { pages } from "./config/emperor";
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<Presentation />} />
+        {pages.map((item) => (
+          <Route
+            path={item.url}
+            element={
+              item.variantProps.variant === "home" ? (
+                <Home {...item} />
+              ) : (
+                <Presentation {...item} />
+              )
+            }
+          />
+        ))}
       </Routes>
     </Router>
   );

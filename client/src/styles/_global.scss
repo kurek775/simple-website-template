@@ -11,3 +11,8 @@ body {
 h1,h2{
 text-align: center;
 }
+.container{
+  width: $container-width;
+  padding: 0px 20px;
+  margin: auto;
+}

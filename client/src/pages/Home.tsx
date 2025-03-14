@@ -1,11 +1,15 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Form from "../components/Form";
+import ResponsiveSlider from "../components/ResponsiveSlider";
+import { HeaderProps } from "../components/Header";
+import { PageConfig } from "../config/emperor.model";
 
-const Home = () => {
+const Home: React.FC<PageConfig> = (props) => {
   return (
-    <Layout>
+    <Layout headerProps={{ h1Title: props.h1Title }}>
       <h2>Welcome to the Home Page</h2>
+      <ResponsiveSlider />
       <Form></Form>
     </Layout>
   );
