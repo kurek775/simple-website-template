@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { pages } from "../config/emperor";
 export interface PageProps {
   url: string;
@@ -9,28 +8,33 @@ export interface PageProps {
 }
 export interface HeaderProps {
   h1Title?: string;
+  headerBgImage?: string;
 }
 const Header = (props: HeaderProps) => {
   return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/">{"props.icon"}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {pages &&
-                pages.map((page, index) => (
-                  <Nav.Link key={index} href={page.url}>
-                    {page.title}
-                  </Nav.Link>
-                ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      {props.h1Title}
-    </div>
+    <header style={{ backgroundImage: `url(${props.headerBgImage})` }}>
+      <div className="navbar-wrapper">
+        <Navbar collapseOnSelect expand="lg">
+          <Container>
+            <Navbar.Brand href="/">{"props.icon"}</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                {pages &&
+                  pages.map((page, index) => (
+                    <Nav.Link key={index} href={page.url}>
+                      {page.title}
+                    </Nav.Link>
+                  ))}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
+      <Container>
+        <h1> {props.h1Title}</h1>
+      </Container>
+    </header>
   );
 };
 

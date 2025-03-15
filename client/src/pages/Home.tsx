@@ -7,9 +7,12 @@ import { PageConfig } from "../config/emperor.model";
 
 const Home: React.FC<PageConfig> = (props) => {
   return (
-    <Layout headerProps={{ h1Title: props.h1Title }}>
-      <h2>Welcome to the Home Page</h2>
-      <ResponsiveSlider />
+    <Layout
+      headerProps={{
+        h1Title: props.h1Title,
+        headerBgImage: props.headerBgImage,
+      }}
+    >
       <Form></Form>
     </Layout>
   );

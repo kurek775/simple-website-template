@@ -8,8 +8,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        {pages.map((item) => (
+        {pages.map((item, index) => (
           <Route
+            key={index}
             path={item.url}
             element={
               item.variantProps.variant === "home" ? (
