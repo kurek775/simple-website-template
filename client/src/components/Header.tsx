@@ -12,20 +12,22 @@ export interface HeaderProps {
 }
 const Header = (props: HeaderProps) => {
   return (
-    <header style={{ backgroundImage: `url(${props.headerBgImage})` }}>
+    <header
+      className="header-wrapper"
+      style={{ backgroundImage: `url(${props.headerBgImage})` }}
+    >
       <div className="navbar-wrapper">
         <Navbar collapseOnSelect expand="lg">
           <Container>
             <Navbar.Brand href="/">{"props.icon"}</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                {pages &&
-                  pages.map((page, index) => (
-                    <Nav.Link key={index} href={page.url}>
-                      {page.title}
-                    </Nav.Link>
-                  ))}
+              <Nav className="ms-auto">
+                {pages.map((page, index) => (
+                  <Nav.Link key={index} href={page.url}>
+                    {page.title}
+                  </Nav.Link>
+                ))}
               </Nav>
             </Navbar.Collapse>
           </Container>

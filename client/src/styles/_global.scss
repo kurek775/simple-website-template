@@ -8,10 +8,37 @@ body {
   margin: 0;
   padding: 0;
 }
+a{
+  font-weight: normal !important;
+  color: $link-color !important;
+}
 h1,h2{
 text-align: center;
 }
+h1 {
+  color: $h1-color !important;
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2;
+  text-transform: uppercase;
+}
 
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100%; 
+  height: 10px;
+  background-color:$primary-color;
+  z-index: -1;
+}
 .navbar-wrapper{
   background: $navbar-bg;
+  border-bottom: 10px solid $primary-color;
+}
+.header-wrapper{
+  border-bottom: 15px solid $primary-color;
 }
